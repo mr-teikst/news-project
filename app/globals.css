@@ -81,8 +81,8 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
-  --custom-primary: #FDFBE2;
-  --custom-secondary: #F6F2F1;
+  --custom-primary: #fdfbe2;
+  --custom-secondary: #f6f2f1;
 }
 
 .dark {
@@ -126,5 +126,13 @@
   }
   body {
     @apply bg-background text-foreground m-0 p-0 font-sans antialiased;
+    /* font-family: "Times New Roman", Times, serif; */
+  }
+  .short-par {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

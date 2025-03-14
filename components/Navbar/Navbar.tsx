@@ -24,7 +24,7 @@ import {
 export default function Navbar() {
   return (
     <>
-      <div className="fixed flex-col px-2 py-1 top-0  h-24 w-full bg-custom-primary border border-2 border-black border-solid rounded-b-sm">
+      <div className="z-10 fixed flex-col px-2 py-1 top-0  h-24 w-full bg-custom-primary border border-2 border-black border-solid rounded-b-sm">
         <div className="flex justify-between items-center">
           <Label className="font-bold text-3xl">{"NEWSHUB :)"}</Label>
           <div className="w-1/3 flex items-center">

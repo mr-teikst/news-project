@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./neoBrutalism.css";
 import Navbar from "@/components/Navbar/Navbar";
+import { garamond } from "@/lib/fonts";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -30,7 +31,7 @@ export default function RootLayout({
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <div className={["", garamond.className].join(" ")}>{children}</div>
       </body>
     </html>
   );
