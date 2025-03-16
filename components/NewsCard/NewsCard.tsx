@@ -1,17 +1,20 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NewsCard({
   title,
   description,
   imageURL,
   className,
+  article,
   ...props
 }: {
   className: string;
   title: string;
   description: string;
   imageURL: string;
+  article?: Article;
 }) {
   return (
     <div
@@ -30,8 +33,9 @@ export default function NewsCard({
           <p className="text-lg short-par">{description}</p>
         </div>
       </div>
-
-      <button className="w-36 bru-btn bg-white self-end">Detail</button>
+      <a className="self-end" href={`/article/${article?.id}`}>
+        <button className="w-36 bru-btn bg-white">Detail</button>
+      </a>
     </div>
   );
 }
