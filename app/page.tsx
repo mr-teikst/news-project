@@ -1,14 +1,6 @@
 import NewsCard from "@/components/NewsCard/NewsCard";
 import { PaginationWithLinks } from "@/components/ui/pagination-with-links";
-
-const getData = async (): Promise<NewsData> => {
-  const response = await fetch(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=2805c91d75f34199a0a1d9d6c5fab565"
-  );
-  const data = await response.json();
-  console.log("data is: ", data);
-  return data;
-};
+import { getData } from "@/lib/api";
 
 export default async function Home({
   searchParams,
@@ -20,6 +12,9 @@ export default async function Home({
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
   const pageSize = searchParams.pageSize ? parseInt(searchParams.pageSize) : 4;
 
+  if (!data) {
+    return <div>Failed to load data</div>;
+  }
   return (
     <>
       <div className="grid grid-cols-5 grid-rows-2 gap-2">
@@ -41,11 +36,12 @@ export default async function Home({
 
             return (
               <NewsCard
-                key={article.title}
+                key={article.id}
                 title={article.title}
                 description={article.description}
                 imageURL={article.urlToImage}
                 className={className}
+                article={article}
               />
             );
           })}
